@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_test/class/user.dart';
 import 'package:provider_test/page/depth/button.dart';
 import 'package:provider_test/page/depth/popup.dart';
 import 'package:provider_test/useful/hero.dart';
-
-import '../../main.dart';
 
 class Depth extends StatelessWidget {
   Depth({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<DataList>(context);
+    final user = Provider.of<UserList>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[200],

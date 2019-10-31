@@ -3,36 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_test/class/click_count.dart';
 import 'package:provider_test/class/opacity.dart';
+import 'package:provider_test/class/user.dart';
 import 'package:provider_test/page/main/body.dart';
 
 void main() => runApp(MyApp());
-
-class Data {
-  String name;
-  int value;
-  Data({this.name, this.value});
-}
-
-class DataList with ChangeNotifier {
-  List<Data> user = [];
-  DataList() {
-    user.add(Data(name: 'hi', value: 1));
-  }
-
-  void addUser(Data friend) {
-    user.add(friend);
-    notifyListeners();
-  }
-
-  void removeUser(String name) {
-    List<String> names = user.map((v) => v.name).toList();
-    if (names.contains(name)) {
-      int ind = names.indexOf(name);
-      user.removeAt(ind);
-      notifyListeners();
-    }
-  }
-}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -47,7 +21,7 @@ class MyApp extends StatelessWidget {
           builder: (_) => OpacityText(),
         ),
         ChangeNotifierProvider(
-          builder: (_) => DataList(),
+          builder: (_) => UserList(),
         ),
       ],
       child: MaterialApp(

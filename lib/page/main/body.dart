@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_test/class/click_count.dart';
+import 'package:provider_test/class/user.dart';
 import 'package:provider_test/main.dart';
 import 'package:provider_test/page/depth/depth.dart';
 import 'package:provider_test/useful/hero.dart';
@@ -14,7 +15,7 @@ class ClickBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final count = Provider.of<ClickCount>(context);
-    final users = Provider.of<DataList>(context);
+    final users = Provider.of<UserList>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -40,7 +41,7 @@ class ClickBody extends StatelessWidget {
               tag: 'button',
               child: CupertinoButton(
                 onPressed: () {
-                  users.addUser(Data(name: 'hello', value: 2));
+                  users.addUser(User(name: 'hello', value: 2));
                   Navigator.of(context).push(CupertinoPageRoute(
                       builder: (_) => Depth(), fullscreenDialog: false));
                 },
