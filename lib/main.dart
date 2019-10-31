@@ -7,6 +7,24 @@ import 'package:provider_test/page/main/body.dart';
 
 void main() => runApp(MyApp());
 
+class Data {
+  String name;
+  int value;
+  Data({this.name, this.value});
+}
+
+class DataList with ChangeNotifier {
+  List<Data> user = [];
+  DataList() {
+    user.add(Data(name: 'hi', value: 1));
+  }
+
+  void addUser(Data friend) {
+    user.add(friend);
+    notifyListeners();
+  }
+}
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -18,7 +36,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           builder: (_) => OpacityText(),
-        )
+        ),
+        ChangeNotifierProvider(
+          builder: (_) => DataList(),
+        ),
       ],
       child: MaterialApp(
         home: ClickBody(title: 'Provider'),
