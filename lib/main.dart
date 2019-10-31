@@ -23,6 +23,15 @@ class DataList with ChangeNotifier {
     user.add(friend);
     notifyListeners();
   }
+
+  void removeUser(String name) {
+    List<String> names = user.map((v) => v.name).toList();
+    if (names.contains(name)) {
+      int ind = names.indexOf(name);
+      user.removeAt(ind);
+      notifyListeners();
+    }
+  }
 }
 
 class MyApp extends StatelessWidget {
