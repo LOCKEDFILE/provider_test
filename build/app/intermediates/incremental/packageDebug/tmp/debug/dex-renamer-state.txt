@@ -1,0 +1,4 @@
+#Thu Oct 31 12:26:54 KST 2019
+base.0=/Users/iFood/Desktop/provider_test/provider_test/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
